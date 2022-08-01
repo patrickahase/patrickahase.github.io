@@ -1,0 +1,54 @@
+@font-face {
+  font-family: 'Roboto', sans-serif;
+  src: url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+}
+
+body {
+  margin: 0;
+  background-color: #c8a330;
+  font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+  padding-left: 40px;
+}
+
+ul {
+  list-style-type: square;
+}
+
+img {
+  width: 50vw;
+  display: block;
+  margin: 0 auto;
+}
+
+.section-box {
+  background-color: #ccf0a6;
+  border: 4px solid #343a64;
+  border-top-color: #4c5696;
+  border-left-color: #4c5696;
+  margin: 2vw;
+  padding: 1vw;
+  box-shadow: 5px 5px 5px #000000;
+}
+
+#PageTitle{
+  text-align: center;
+  max-width: 96vw;
+  margin: 2vw;
+}
+
+#ProjectDetails{
+  text-align: center;
+}
+
+.gradient-colour-1{
+  color: #4c5696;
+}
+.gradient-colour-2{
+  color: #0093bf;
+}
+.gradient-colour-3{
+  color: #44c8b5;
+}
