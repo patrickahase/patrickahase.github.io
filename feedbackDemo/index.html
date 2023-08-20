@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    
+    <head>
+        
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Feedback Demo</title>
+
+    </head>
+
+    <body>
+
+      <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+        }
+        main{
+          width: 80%;
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      </style>
+
+      <main>
+        
+        <style>
+          #slowFeedback{
+            background-color: lightgray;
+            border: 1px darkgrey solid;
+            border-radius: 3px;
+            transition: 3s;
+          }
+          #slowFeedback:hover{
+            background-color: darkgrey;
+          }
+        </style>
+
+        <button id="slowFeedback">button 1</button>
+        
+        <style>
+          #fastSlowFeedback{
+            background-color: lightgray;
+            border: 1px darkgrey solid;
+            border-radius: 3px;
+            transition: 1s;
+          }
+          #fastSlowFeedback:hover{
+            background-color: darkgrey;
+            transition: 0s;
+          }
+        </style>
+        
+        <script>
+          function buttonTextChange(button){
+            button.innerHTML = "you clicked me";
+          }
+        </script>
+
+        <button id="fastSlowFeedback" onclick="buttonTextChange(this)">button 2</button>
+        
+        <style>
+          #activeButton{
+            background-color: lightgray;
+            border: 1px darkgrey solid;
+            border-radius: 3px;
+            transition: 1s;
+          }
+          #activeButton:hover{
+            background-color: darkgrey;
+            transition: 0s;
+          }
+          #activeButton:active{
+            background-color: rgb(87, 87, 87);
+          }
+        </style>
+
+        <button id="activeButton">button 3</button>
+        
+        <style>
+          #pointerButton{
+            background-color: lightgray;
+            border: 1px darkgrey solid;
+            border-radius: 3px;
+            transition: 1s;
+          }
+          #pointerButton:hover{
+            background-color: darkgrey;
+            transition: 0s;
+            cursor: pointer;
+          }
+        </style>
+
+        <button id="pointerButton" onclick="alert('you clicked me')">button 4</button>
+        
+        <style>
+          #scaleButton{
+            background-color: lightgray;
+            border: 1px darkgrey solid;
+            border-radius: 3px;
+            transition: 0s;
+          }
+          #scaleButton:hover{
+            background-color: darkgrey;
+            transition: 3s;
+            transform: scale(2.0);
+          }
+        </style>
+
+        <button id="scaleButton">button 5</button>
+        
+        <button>button 6</button>
+
+      </main>
+
+    </body>
+
+</html>
