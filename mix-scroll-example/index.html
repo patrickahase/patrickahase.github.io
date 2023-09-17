@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="Stylesheet" rev="Stylesheet" href="style.css">
+
+    <script src="scrollScript.js" defer></script>
+    <script src="modalScript.js" defer></script>
+    <script src="colourGenScript.js" defer></script>
+
+    <title>Mix Scroll Prototype</title>
+
+  </head>
+
+  <body>
+    <!-- Contains modal and gives opacity overlay -->
+    <div class="modalWrapper">
+      <div class="modalBox">
+        <h2>Welcome</h2>
+        <p>This is a scrolling mix experiment by Patrick Hase...</p>
+        <p>Please be aware that by loading the scroll you will be downloading ~9mb of music files</p>
+        <button class="continueButton" onclick="toggleModalOpen()">continue</button>
+      </div>
+    </div>
+
+    <div id="scroll-wrapper">
+
+      <div id="loading-wrapper">
+        <button id="mix-load-button" onclick="audioInit()"><span id="button-left-arrow">🢂</span> Expand to Scroll <span id="button-right-arrow">🢀</span></button>
+      </div>
+      
+      <div id="text-wrapper">
+        <p class="scrollPara">
+          The interaction found on this website was originally developed for a work by Anuraag Bhatia called 
+          <a href="https://www.liminalmag.com/sanctuary/being-a-body" target="_blank">being, a body</a> which was published in Liminal Magazine. 
+          This work was in turn influenced by works from <a href="http://runway.org.au/e-fishpool/" target="_blank">E Fishpool</a> and 
+          <a href="http://runway.org.au/natalia-newling/" target="_blank">Natalia Newling</a>. I saw the potential to develop the code into something 
+          that can be re-used and easily customised for different contexts – the results of which you can see here. All that’s needed to create a new 
+          implementation is to reference a different list of audio files and written content and the rest is dynamically generated.
+        </p>
+        <p class="scrollPara">
+          The central audio interaction is designed to allow users to mix between audio tracks as they vertically scroll the page. Each of the tracks is 
+          assigned an equal amount of space on the page – so in this case the total page height is divided by the four tracks. Each track will crossfade 
+          into each other based on the current scroll position – so for example the top 25% of the page will be a mix between the first and second track. 
+          I wanted the crossfades to work as an equal power volume ramp instead of linear so I referenced 
+          <a href="https://webaudioapi.com/book/Web_Audio_API_Boris_Smus_html/ch03.html#s03_2" target="_blank">Boris Smus’ book on the web audio API</a> 
+          for a way to implement this using JavaScript maths objects. All of the audio tracks start playing in a loop once the interaction starts – the 
+          scrolling only changes the volume. Another potential implementation could pause the songs not currently part of the crossfade however in this 
+          case that might cause them to fall out of sync as they are all set to same bpm.
+        </p>
+        <p class="scrollPara">
+          There is a small amount of interaction required before a user is able to use the scrolling mix. There is an initial popup with some minimal 
+          information about the work and a warning about the download size it will use. Once a user continues they are greeted by a button with the text 
+          “expand to scroll” which once pressed will start the audio interaction and an animation displaying this text and expanding the page size to allow 
+          enough room to mix smoothly with scrolling. This animation is useful to set expectations of what will be on the total page and to encourage 
+          curiosity in the user who may want to read the text they have briefly glimpsed.
+        </p>
+        <p class="scrollPara">
+          The coloured gradients on the page were implemented as a way to give additional visual feedback indicating roughly were the different tracks 
+          blend into one another. Each time the page loads a new gradient is generated randomly which a different band of colour added per track in the 
+          list. This random generation was done by using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl" target="_blank">HSL colour</a> 
+          values which allows more specific control over the kinds of colours generated as I can shift the hue using one number while maintaining a 
+          predefined saturation and lightness. This method also allows me to easily generate a colour of the “opposite” hue as can be seen providing 
+          the contrast between the inner box and the outer frame.
+        </p>
+      </div>
+
+    </div>
+
+    
+  </body>
+
+</html>

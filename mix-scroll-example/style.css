@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@font-face{
+  font-family: 'Poppins', sans-serif;
+  src: url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'), format('truetype');
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  transition: height 10s;
+  padding: 1rem;
+  overflow-y: scroll;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* modal style */
+
+.modalWrapper{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100vh; 
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+.modalBox{
+  background-color: black;
+  border: 0.2rem white double;
+  border-radius: 1rem 0;
+  margin: 1rem;
+  padding: 1rem;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.continueButton{
+  background-color: black;
+  border: 0.2rem white solid;
+  color: white;
+  border-radius: 0.5rem 0;
+  font-size: 2rem;
+  padding: 0 1rem;
+}
+.continueButton:hover{
+  background-color: white;
+  border: 0.2rem black solid;
+  color: black;
+  transition: 0.1s ease-out;
+  text-decoration-color: rgba(0, 0, 0, 1);
+}
+.continueButton:active{
+  background-color: black;
+  border: 0.2rem white solid;
+  color: white;
+}
+
+/* scroll section style */
+
+#scroll-wrapper{
+  padding: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: 0.2rem white double;
+  border-radius: 2rem 0;
+}
+
+#loading-wrapper{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#mix-load-button{
+  font-size: 2rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: transparent;
+  background-image: linear-gradient(135deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(162, 162, 162, 0.547) 50%, rgba(0,0,0,0) 60%, rgba(0,0,0,0) 100%);
+  background-size: 200% 200%;
+  background-position: 150% 0%;
+ /*  transition: 4s ease-out; */
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 0, 0, 0);
+}
+#mix-load-button:hover{
+  transition: 0.5s;
+  text-decoration-color: rgba(0, 0, 0, 1);
+}
+#button-left-arrow{
+  transition: 0.15s;
+  display: inline-block;
+}
+#mix-load-button:hover #button-left-arrow{
+  transform: rotate(90deg);
+}
+#button-right-arrow{
+  transition: 0.15s;
+  display: inline-block;
+}
+#mix-load-button:hover #button-right-arrow{
+  transform: rotate(-90deg);
+}
+#mix-load-button.loading{
+  background-size: 400% 200%;
+  background-position: 20% 0%;
+}
+
+#text-wrapper{
+  width: 100%;
+  height: 100%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.scrollPara{
+  padding: 1rem;
+  font-size: 2rem;
+}
