@@ -12,3 +12,7 @@
   --col04:#b6e878;
   --border: single 1rem var(--col02);
 }
+
+body{
+  font-family: 'Work Sans', sans-serif;
+}
