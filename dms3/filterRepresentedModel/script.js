@@ -1,0 +1,3 @@
+function setLayerAlpha(layerNumber, newAlpha){
+  
+}
