@@ -3,13 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>boilerplate</title>
+  <title>Image Filter</title>
 
   <link rel="Stylesheet" href="style.css">
 
   <script src="script.js" defer></script>
+
+  <!-- partially based on my object animacy project, and the article linked below -->
+  <!-- https://www.smashingmagazine.com/2015/05/why-the-svg-filter-is-awesome/ -->
+
 </head>
 <body>
-  <h1>This is my boilerplate</h1>
+
+  <h1>Lorem ipsum dolor sit amet</h1>
+
+  <!-- this is where the svg filter lives -->
+  <!-- it's not applied here, its referenced in the CSS via its id -->
+
+  <svg xmlns="http://www.w3.org/2000/svg">
+    <defs>
+
+      <filter id="customFilter">
+
+        <!-- first layer -->
+
+        <feFlood flood-color="#F79308" result="colourFirstLayer" />
+
+        <feComposite result="colouredFirst" operator="in" in="colour1" in2="SourceAlpha" />
+
+        <feMorphology in="colouredFirst" result="dilated" operator="dilate" radius="2" />
+
+        <feGaussianBlur in="dilated" result="blurred" in="offset" stdDeviation="1" />        
+        
+        <feColorMatrix in="blurred" result="firstLayer"
+          type="matrix"
+          values=" 1.000  0.000  0.000  0.000  0.000 
+                   0.000  1.000  0.000  0.000  0.000 
+                   0.000  0.000  1.000  0.000  0.000 
+                   0.000  0.000  0.000  0.900  0.000">
+        </feColorMatrix>
+
+        <!-- second layer -->
+
+        <feFlood flood-color="skyblue" result="colourSecondLayer" />
+
+        <feComposite result="colouredSecond" operator="in" in="colour1" in2="SourceAlpha" />
+
+        <feTurbulence result="dispNoise" baseFrequency="0.05" numOctaves="3" seed="4"/>
+
+        <feDisplacementMap result="displaced" in="colouredSecond" in2="dispNoise" scale="10"/>
+
+        <!-- <feFlood flood-color="#F79308" result="COLOR" /> -->
+
+        <feColorMatrix in="displaced" result="secondLayer"
+          type="matrix"
+          values=" 1.000  0.000  0.000  0.000  0.000 
+                   0.000  1.000  0.000  0.000  0.000 
+                   0.000  0.000  1.000  0.000  0.000 
+                   0.000  0.000  0.000  0.900  0.000">
+        </feColorMatrix>
+
+        <feBlend in="firstLayer" in2="secondLayer" mode="hard-light" />
+        
+      </filter>
+
+    </defs>
+  </svg>
+
 </body>
 </html>
