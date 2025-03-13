@@ -7,6 +7,7 @@
 
   <link rel="Stylesheet" href="style.css">
 
+  <script src="customFilterAPI.js" defer></script>
   <script src="script.js" defer></script>
 
   <!-- partially based on my object animacy project, and the article linked below -->
@@ -27,15 +28,15 @@
 
         <!-- first layer -->
 
-        <feFlood flood-color="#F79308" result="colourFirstLayer" />
+        <feFlood flood-color="#F79308" result="colourFirstLayer" id="firstLayerFld" />
 
         <feComposite result="colouredFirst" operator="in" in="colour1" in2="SourceAlpha" />
 
-        <feMorphology in="colouredFirst" result="dilated" operator="dilate" radius="2" />
+        <feMorphology in="colouredFirst" result="dilated" operator="dilate" radius="2" id="firstLayerMorph" />
 
-        <feGaussianBlur in="dilated" result="blurred" in="offset" stdDeviation="1" />        
+        <feGaussianBlur in="dilated" result="blurred" in="offset" stdDeviation="1" id="firstLayerBlur" />        
         
-        <feColorMatrix in="blurred" result="firstLayer"
+        <feColorMatrix in="blurred" result="firstLayer" id="firstLayerColMtx"
           type="matrix"
           values=" 1.000  0.000  0.000  0.000  0.000 
                    0.000  1.000  0.000  0.000  0.000 
@@ -45,15 +46,15 @@
 
         <!-- second layer -->
 
-        <feFlood flood-color="skyblue" result="colourSecondLayer" />
+        <feFlood flood-color="skyblue" result="colourSecondLayer" id="secondLayerFld" />
 
         <feComposite result="colouredSecond" operator="in" in="colour1" in2="SourceAlpha" />
 
-        <feTurbulence result="dispNoise" baseFrequency="0.05" numOctaves="3" seed="4"/>
+        <feTurbulence result="dispNoise" baseFrequency="0.05" numOctaves="3" seed="4" id="secondLayerNoise" />
 
-        <feDisplacementMap result="displaced" in="colouredSecond" in2="dispNoise" scale="10"/>
+        <feDisplacementMap result="displaced" in="colouredSecond" in2="dispNoise" scale="10" id="secondLayerDisp" />
 
-        <feColorMatrix in="displaced" result="secondLayer"
+        <feColorMatrix in="displaced" result="secondLayer" id="secondLayerColMtx"
           type="matrix"
           values=" 1.000  0.000  0.000  0.000  0.000 
                    0.000  1.000  0.000  0.000  0.000 
