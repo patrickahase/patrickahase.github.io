@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;1,100&display=swap');
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root{
+  --col01:#171219;
+  --col02:#f2fbeb;
+  --col03:#5252ff;
+  --col04:#b6e878;
+  --border: solid 0.5rem var(--col02);
+}
+
+body{
+  font-family: 'Work Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: var(--col01);
+  color: var(--col02);
+}
+
+
+#colour-square{
+  width: 5rem; height: 5rem;
+  background-color: var(--col03);
+  border: var(--border);
+}
