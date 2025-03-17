@@ -1,0 +1,60 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+#horizontalFieldSet{
+  width: fit-content;
+}
+
+#verticalFieldSet{
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#circularFieldSet{
+  width: 24rem;
+  height: 24rem;
+  padding: 0;
+  position: relative;
+}
+
+#circularFieldSet div{
+  display: block;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 2rem; height: 2rem;
+  top: 50%; left: 50%;
+  margin: -2rem;
+}
+
+#cfs0{
+  transform: translate(10rem);
+}
+#cfs1{
+  transform: rotate(45deg) translate(10rem) rotate(-45deg);
+}
+#cfs2{
+  transform: rotate(90deg) translate(10rem) rotate(-90deg);
+}
+#cfs3{
+  transform: rotate(135deg) translate(10rem) rotate(-135deg);
+}
+#cfs4{
+  transform: rotate(180deg) translate(10rem) rotate(-180deg);
+}
+#cfs5{
+  transform: rotate(225deg) translate(10rem) rotate(-225deg);
+}
+#cfs6{
+  transform: rotate(270deg) translate(10rem) rotate(-270deg);
+}
+#cfs7{
+  transform: rotate(315deg) translate(10rem) rotate(-315deg);
+}

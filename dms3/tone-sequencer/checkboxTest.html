@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>checkTest</title>
+  <link href="stylecheck.css" rel="stylesheet">
+</head>
+<body>
+
+  <h1>checkTest</h1>
+
+  <fieldset>
+    <legend>Sequence 01</legend>
+    <div>
+      <label>
+        <input type="checkbox" class="seqStep" id="step01" name="seq01" value="step01" />
+        step 01
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" class="seqStep" id="step02" name="seq01" value="step02" />
+        step 02
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" class="seqStep" id="step03" name="seq01" value="step03" />
+        step 03
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" class="seqStep" id="step04" name="seq01" value="step04" />
+        step 04
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" class="seqStep" id="step05" name="seq01" value="step05" />
+        step 05
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" class="seqStep" id="step06" name="seq01" value="step06" />
+        step 06
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" class="seqStep" id="step07" name="seq01" value="step07" />
+        step 07
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" class="seqStep" id="step08" name="seq01" value="step08" />
+        step 08
+      </label>
+    </div>
+
+  </fieldset>
+
+  <script>
+    let checkBoxes = Array.from(document.getElementsByClassName("seqStep"));
+
+    checkBoxes.forEach(box => {
+      box.addEventListener("click", (e) => {
+        if(box.readOnly) box.checked = box.readOnly = false;
+        else if(!box.checked) {
+          box.readOnly = box.indeterminate = true;
+          setNewReset(box.id);
+        }
+      });
+    });
+    
+    function setNewReset(lastStepID){
+      let stillInSeq = true;
+      checkBoxes.forEach(box =>{
+        if(box.id === lastStepID) stillInSeq = false;
+        if(!stillInSeq) box.parentElement.style.textDecoration = 'line-through';
+        else box.parentElement.style.textDecoration = null;
+      });
+    }
+  </script>
+
+  <!-- technique for rotating through checked and indeterminate taken from below -->
+  <!-- https://css-tricks.com/indeterminate-checkboxes/ -->
+
+</body>
+</html>
