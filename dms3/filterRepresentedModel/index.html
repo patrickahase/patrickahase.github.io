@@ -29,6 +29,8 @@
   </div>
 
   <input type="text" placeholder="Lorem ipsum dolor sit amet" />
+
+  <input type="range" min="1" max="2" id="satRange" step="0.01" />
   
 
   <!-- this is where the svg filter lives -->
@@ -75,7 +77,15 @@
                    0.000  0.000  0.000  0.900  0.000">
         </feColorMatrix>
 
-        <feBlend in="firstLayer" in2="secondLayer" mode="hard-light" />
+        <feBlend in="firstLayer" in2="secondLayer" result="output" mode="hard-light" />
+
+        <feColorMatrix in="output" id="saturate"
+          type="matrix"
+          values=" 1.000  0.000  0.000  0.000  0.000 
+                   0.000  1.000  0.000  0.000  0.000 
+                   0.000  0.000  1.000  0.000  0.000 
+                   0.000  0.000  0.000  0.900  0.000">
+        </feColorMatrix>
         
       </filter>
 
@@ -84,3 +94,4 @@
 
 </body>
 </html>
+

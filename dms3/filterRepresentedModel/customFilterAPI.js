@@ -114,3 +114,29 @@ function clamp(input, min, max){
     return Math.min(Math.max(input, min), max);
 }
 
+
+
+
+
+
+
+
+
+
+
+let satFilter = document.getElementById("saturate")
+
+document.getElementById("satRange").addEventListener("input", e => {
+    
+    let satAmount = e.target.value;
+    let satR = (1 - satAmount) * 0.3086;
+    let satG = (1 - satAmount) * 0.6094;
+    let satB = (1 - satAmount) * 0.0820;
+
+    let newValues = ` ${satR + satAmount}  ${satR}  ${satR}  0.000  0.000 
+                      ${satG}  ${satG + satAmount}  ${satG}  0.000  0.000 
+                      ${satB}  ${satB}  ${satB + satAmount}  0.000  0.000 
+                      0.000  0.000  0.000  1.000  0.000`;
+    satFilter.setAttribute("values", newValues);
+});
+
