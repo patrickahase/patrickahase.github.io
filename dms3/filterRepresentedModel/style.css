@@ -15,8 +15,23 @@
 
 body{
   font-family: 'Work Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--col02);
 }
 
-h1 {
+.drag-active{
+  cursor: grabbing;
+}
+
+h1{
   filter: url(#customFilter);
+  font-size: 5rem;
+}
+
+#xyControlBox{
+  width: 15rem; height: 15rem;
+  background-color: var(--col01);
 }

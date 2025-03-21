@@ -8,6 +8,7 @@
   <link rel="Stylesheet" href="style.css">
 
   <script src="customFilterAPI.js" defer></script>
+  <script src="xyController.js" defer></script>
   <script src="script.js" defer></script>
 
   <!-- partially based on my object animacy project, and the article linked below -->
@@ -17,6 +18,18 @@
 <body>
 
   <h1>Lorem ipsum dolor sit amet</h1>
+
+  <div id="xyControlBox">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" id="xySVGEl">
+      <rect width="94" height="94" fill="var(--col02)"
+            x="3" y="3" id="xyPad" />
+      <circle r="3" fill="var(--col03)"
+              cx="3" cy="3" id="xyPosMarker" />
+    </svg>
+  </div>
+
+  <input type="text" placeholder="Lorem ipsum dolor sit amet" />
+  
 
   <!-- this is where the svg filter lives -->
   <!-- it's not applied here, its referenced in the CSS via its id -->
