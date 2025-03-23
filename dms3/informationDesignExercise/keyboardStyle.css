@@ -1,0 +1,63 @@
+
+.keyboardBox{
+    display: flex;
+  }
+  
+  .keyboardOctave{
+    position: relative;
+    width: 14rem;
+  }
+  
+  .whiteKeyBox{
+    position: absolute;
+    top: 0;
+    display: flex;
+  }
+  
+  .whiteKey{
+    margin: 0;
+    background-color: var(--col03);
+    border: var(--border);
+    border-left: none;
+    width: 2rem; height: 10rem;
+  }
+  .whiteKey:first-of-type{
+    border: var(--border);
+    width: calc(2rem + 4px);
+  }
+  
+  .blackKeyBox{
+    position: absolute;
+    top: 0;
+    display: flex;
+    pointer-events: none;
+  }
+  
+  .blackKey{
+    margin: 0;
+    background-color: var(--col04);
+    border: var(--border);
+    border-left: none;
+    width: 2rem; height: 5.5rem;
+    pointer-events: auto;
+  }
+  .blackKey:nth-of-type(1){
+    border: var(--border);
+    width: calc(2rem + 4px);
+  }
+  .blackKey:nth-of-type(3){
+    border: var(--border);
+    width: calc(2rem + 4px);
+  }
+  .blackKeySpace{
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    pointer-events: none;
+    width: calc(1rem - 1px);
+    height: 0;
+  }
+
+  .activeKey{
+    background-color: var(--col02);
+  }

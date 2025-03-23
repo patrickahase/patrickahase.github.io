@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 *{
+  box-sizing: border-box;
   /* box-sizing: border-box;
   margin: 0;
   font-family: "Work Sans", serif;
@@ -11,10 +12,10 @@
 
 :root{
   /* based Foxfire Palette by Lotaru https://lospec.com/palette-list/foxfire */
-  --col01: #5a0084;
-  --col02: #e63900;
-  --col03: #ffc96b;
-  --col04: #e8e8e8 ;
+  --col01: #000000;
+  --col02: #8e8eff;
+  --col03: #fdfdff;
+  --col04: #1919ff;
   --border: solid 4px var(--col01);
 }
 
