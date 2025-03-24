@@ -23,6 +23,7 @@ body{
   flex-direction: column;
   align-items: center;
   background-color: var(--col01);
+  color: var(--col04);
 }
 
 h1{

@@ -92,9 +92,9 @@ document.addEventListener("mouseup", () => {
 });
 
 /////////////////////////////////////////////////////// Filters
-let noiseOn = true;
-let blurOn = true;
-let pixelateOn = true;
+let noiseOn = false;
+let blurOn = false;
+let pixelateOn = false;
 
 let activeFilterList = [];
 
