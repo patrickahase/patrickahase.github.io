@@ -27,40 +27,6 @@ function setBrushColour(newColour){
     ctx.strokeStyle = validColour;
 }
 
-/* toggles noise on/off */
-function noiseToggle(){
-    noiseOn = !noiseOn;
-    updateActiveFilterList();
-}
-/* sets amount of noise */
-/* accepts large range */
-function setNoiseAmount(value){
-    image.noise(value);
-}
-
-/* toggles blur on/off */
-function blurToggle(){
-    blurOn = !blurOn;
-    updateActiveFilterList();
-}
-/* sets amount of blur */
-/* accepts large range */
-function setBlurAmount(value){
-    image.blurRadius(value);
-}
-
-/* toggles pixelate on/off */
-function pixelateToggle(){
-    pixelateOn = !pixelateOn;
-    updateActiveFilterList();
-}
-/* sets amount of pixelation */
-/* accepts large range */
-function setBlurAmount(value){
-    image.pixelSize(value);
-}
-
-
 /* below are helper functions */
 /* these are tools to do small bits of math calculations for use in your other functions */
 

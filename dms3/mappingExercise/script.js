@@ -1,10 +1,3 @@
-let colourPalette1Input = document.getElementById("palette01");
-
-colourPalette1Input.addEventListener("click", e => {
-    let newColour = getComputedStyle(e.target).backgroundColor
-    setBrushColour(newColour);
-});
-
 /* let colourPalette1Input = document.getElementById("palette01");
 
 colourPalette1Input.addEventListener("click", e => {
