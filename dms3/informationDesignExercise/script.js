@@ -1,3 +1,5 @@
+///////// Modal
+
 /* find modal close button and add an eventlistener */
 document.getElementById("dialogCloseBtn").addEventListener("click", () => {
   document.getElementById("introDialog").close();
@@ -10,15 +12,10 @@ document.getElementById("introDialog").showModal();
 /* we set up the map before anything else - this way our variables can be part of the init */
 
 ///////// Define Input Variables
-/* min 1 max 25 step 1 */
+
 let var1 = 5;
 let var1Input = document.getElementById("var1Range");
 var1Input.value = var1;
-
-let oscCount = 3;
-// ideal range : int 1 - 5 step 1 init 3?
-let oscSpread = 10;
-// ideal range : int 1 - 100 step 1 init 30
 
 let var2 = 50;
 let var2Input = document.getElementById("var2Range");
@@ -33,8 +30,8 @@ var3Input.value = var3;
 let polySynth = new Tone.PolySynth(Tone.Synth, {
   oscillator: {
     type: "fatsawtooth",
-    count: oscCount,
-    spread: oscSpread,
+    count: 3,
+    spread: 10,
   },
   envelope: {
     attack: 0.01,
@@ -49,7 +46,7 @@ let polySynth = new Tone.PolySynth(Tone.Synth, {
 
 let autoPanner = new Tone.AutoPanner("8n").start();
 autoPanner.set({
-  wet: oscSpread / 200
+  wet: 30 / 200
 });
 
 let filter = new Tone.Filter(0, "highpass");
@@ -81,16 +78,24 @@ part.probability = 0.8;
 ///////// Init Connections
 
 function toneInit(){
-
   polySynth.chain(filter, autoPanner, dist, Tone.Destination);
-
-  //Tone.Transport.start();
-
-  //polySynth.set({detune: 2000});
-
-  //console.log(polySynth.get({detune: {}}));
-
 }
+
+let isPlaying = false;
+let playbackToggleButton = document.getElementById("playbackToggle");
+
+playbackToggleButton.addEventListener("click", () => {
+  if(!isPlaying){
+    Tone.Transport.start();
+    isPlaying = true;
+    playbackToggleButton.innerHTML = "⏸️";
+  } else {
+    Tone.Transport.pause();
+    //Tone.Transport.stop();
+    isPlaying = false;
+    playbackToggleButton.innerHTML = "▶️";
+  }
+});
 
 var1Input.addEventListener("input", e => {
   let intValue = Math.floor(e.target.value);
@@ -114,7 +119,6 @@ var2Input.addEventListener("input", e => {
       frequency: clamp(remapRange(value, 60, 100, 0, 6000), 0, 6000),
       type: "highpass"
     });
-    console.log(filter.get({frequency : {}}))
   } else {
     filter.set({      
       frequency: clamp(remapRange(value, 0, 40, 0, 20000), 0, 20000),
@@ -142,18 +146,6 @@ function remapRange(value, min1, max1, min2, max2){
 function clamp(value, min, max){
   return Math.min(Math.max(value, min), max);
 }
-
-document.getElementById("playbackToggle").addEventListener("click", () => {
-  Tone.Transport.start();
-});
-
-document.getElementById("test").addEventListener("input", e => {
-  let value = e.target.value;
-  let newVolume = remapRange(clamp(value, 0, 100), 0, 100, -48, 0);
-  polySynth.set({volume: newVolume});
-  let distLevel = remapRange(clamp(value, 100, 130), 100, 130, 0, 1);
-  dist.set({ distortion : distLevel });
-});
 
 /* marks for vol/dist */
 
