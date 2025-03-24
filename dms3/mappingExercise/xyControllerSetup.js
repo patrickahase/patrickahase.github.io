@@ -13,7 +13,7 @@ xyControllers.forEach(xyBox => {
     let svgCTM = xyBox.querySelector(".xySVGEl").getScreenCTM();
     /* if window is resized work out new SVG transform */
     window.addEventListener("resize", () => {
-        svgCTM = document.getElementById("xySVGEl").getScreenCTM();
+        svgCTM = xyBox.querySelector(".xySVGEl").getScreenCTM();
     });
     /* init marker pos */
     let markerXPos, markerYPos = 3;

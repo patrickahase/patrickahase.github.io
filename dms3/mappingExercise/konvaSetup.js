@@ -92,9 +92,9 @@ document.addEventListener("mouseup", () => {
 });
 
 /////////////////////////////////////////////////////// Filters
-let noiseOn = false;
-let blurOn = false;
-let pixelateOn = false;
+let noiseOn = true;
+let blurOn = true;
+let pixelateOn = true;
 
 let activeFilterList = [];
 
@@ -109,6 +109,6 @@ function updateActiveFilterList(){
 updateActiveFilterList();
 
 image.filters(activeFilterList);
-image.noise(1);
-image.blurRadius(1);
+image.noise(0);
+image.blurRadius(0);
 image.pixelSize(1);

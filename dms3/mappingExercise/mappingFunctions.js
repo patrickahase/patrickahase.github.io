@@ -34,7 +34,7 @@ function noiseToggle(){
 }
 /* sets amount of noise */
 /* accepts large range */
-function setBlurAmount(value){
+function setNoiseAmount(value){
     image.noise(value);
 }
 
