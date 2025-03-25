@@ -10,11 +10,6 @@ document.getElementById("synthTriggerBtn", () =>{
   
 });
 
-document.getElementById("drumTriggerBtn", () =>{
-
-});
-
-
 /////////////// Representation of tone mental model ///////////////
 
 

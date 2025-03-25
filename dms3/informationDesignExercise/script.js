@@ -1,3 +1,51 @@
+/* 
+Information Design exercise :
+Visually design each of the four range sliders without using words (emojis are ok).
+You may work with CSS or sketch your design in another program.
+Your designs should use ambiguity : some indication, however abstract, of what you think the sliders do.
+Be mindful of the represented model of the slider : Do you want to use tick marks? How does your design match the range?
+*/
+
+/* marks for vol/dist */
+
+/////////////// Model of Instrument ///////////////
+
+/* 
+Trigger           -------------------------->   Source      ------->    Effects Chain                               ----------------->    Destination            
+Start Playback    part.triggerAttackRelease()   PolySynth   .chain()    filter -> autoPanner -> dist -> pingPong    Tone.Destination()    Audio Driver ( => Audio Hardware )
+
+Keyboard          triggerAttack()
+                  triggerRelease()
+*/
+
+/* 
+Range Slider 1:
+Oscillator Count
+Oscillator Spread
+Humanize (random note offset)
+Auto Panner
+*/
+
+/* 
+Range Slider 2:
+High Pass and Low Pass Filters (opposite ends of range)
+BPM (speed of part playback)
+Detune (PolySynth pitch)
+*/
+
+/* 
+Range Slider 3:
+Probability (random chance note in part won't play)
+PingPong Delay Volume
+PingPong Delay Feedback
+*/
+
+/* 
+Range Slider 4:
+PolySynth Volume
+Distortion Amount
+*/
+
 ///////// Modal
 
 /* find modal close button and add an eventlistener */
@@ -21,9 +69,13 @@ let var2 = 50;
 let var2Input = document.getElementById("var2Range");
 var2Input.value = var2;
 
-let var3 = 100;
+let var3 = 0.2;
 let var3Input = document.getElementById("var3Range");
 var3Input.value = var3;
+
+let var4 = 100;
+let var4Input = document.getElementById("var4Range");
+var4Input.value = var4;
 
 ///////// Synthesizer
 
@@ -53,6 +105,11 @@ let filter = new Tone.Filter(0, "highpass");
 
 const dist = new Tone.Distortion(0);
 
+const pingPong = new Tone.PingPongDelay("8n", 0.2);
+pingPong.set({
+  wet: 0.2
+});
+
 ///////// Note Sequence
 
 let sequence = [
@@ -78,7 +135,7 @@ part.probability = 0.8;
 ///////// Init Connections
 
 function toneInit(){
-  polySynth.chain(filter, autoPanner, dist, Tone.Destination);
+  polySynth.chain(filter, autoPanner, dist, pingPong, Tone.Destination);
 }
 
 let isPlaying = false;
@@ -131,6 +188,15 @@ var2Input.addEventListener("input", e => {
 
 var3Input.addEventListener("input", e => {
   let value = e.target.value;
+  part.probability = 1 - value;
+  pingPong.set({
+    wet: value,
+    feedback: value
+  });
+});
+
+var4Input.addEventListener("input", e => {
+  let value = e.target.value;
   let newVolume = remapRange(clamp(value, 0, 100), 0, 100, -48, 0);
   polySynth.set({volume: newVolume});
   let distLevel = remapRange(clamp(value, 100, 130), 100, 130, 0, 1);
@@ -147,37 +213,4 @@ function clamp(value, min, max){
   return Math.min(Math.max(value, min), max);
 }
 
-/* marks for vol/dist */
-
-/////////////// Representation of tone mental model ///////////////
-
-
-/* 
-Source          -------------->    Destination
-
-Synthesizer     .toDesination()    Audio Driver ( => Audio Hardware )
-Audio Player
-*/
-
-
-/* 
-Trigger             ---------------------->   Source          
-
-Pitch, Length       .triggerAttackRelease()   Synthesizer
-Pitch, Start Time   .triggerAttack()      
-End Time            .triggerRelease()
-
-Start Playback      .start()                  Audio Player
-Stop Playback       .stop()
-*/
-
-
-/* 
-Source          --------->    Effect        -------------->    Destination
-
-Synthesizer     .connect()    Reverb        .toDesination()    Audio Driver ( => Audio Hardware )
-Audio Player                  Phaser        OR
-                              Distortion    .connect()         Other Effect
-                              etc
-*/
 
