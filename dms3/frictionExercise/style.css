@@ -10,11 +10,15 @@
 }
 
 :root{
-  /* based Foxfire Palette by Lotaru https://lospec.com/palette-list/foxfire */
-  --col01: rgb(90, 0, 132);
-  --col02: rgb(230, 57, 0);
-  --col03: #ffc96b;
-  --col04: #e8e8e8;
+  /* based Dream Haze 8 Palette by Klafooty https://lospec.com/palette-list/dream-haze-8 */
+  --col01: rgb(60, 66, 196);
+  --col02: rgb(110, 81, 200);
+  --col03: rgb(160, 101, 205);
+  --col04: rgb(206, 121, 210);
+  --col05: rgb(214, 143, 184);
+  --col06: rgb(221, 162, 163);
+  --col07: rgb(234, 196, 174);
+  --col08: rgb(244, 223, 190);
   --border: solid 4px var(--col02);
 }
 
@@ -23,12 +27,12 @@ body{
   flex-direction: column;
   align-items: center;
   background-color: var(--col01);
-  color: var(--col04);
+  color: var(--col08);
 }
 
 h1{
   text-align: center;
-  color: var(--col04);
+  color: var(--col08);
   margin-bottom: 1rem;
 }
 
@@ -39,7 +43,7 @@ h1{
 }
 
 #stageContainer{
-  background-color: var(--col04);
+  background-color: var(--col08);
 }
 
 #waterPaletteBox{
@@ -51,7 +55,7 @@ h1{
 #waterCupMouth{
   width: 15rem; height: 12rem;
   border-radius: 50%;
-  background: linear-gradient(to bottom, var(--col04) 0 10%, #b3b3b3);
+  background: linear-gradient(to bottom, var(--col08) 0 10%, var(--col01));
   cursor: inherit;
 }
 
@@ -60,7 +64,7 @@ h1{
   height: 280px;
   display: flex;
   flex-direction: column;
-  background-color: var(--col04);
+  background-color: var(--col08);
 }
  
 .paletteColour{
@@ -69,16 +73,16 @@ h1{
   cursor: inherit;
 }
 #palette01{
-  background-color: var(--col01);
-}
-#palette02{
-  background-color: var(--col02);
-}
-#palette03{
   background-color: var(--col03);
 }
+#palette02{
+  background-color: var(--col04);
+}
+#palette03{
+  background-color: var(--col05);
+}
 #palette04{
-  background-color: black;
+  background-color: var(--col06);
 }
 
 

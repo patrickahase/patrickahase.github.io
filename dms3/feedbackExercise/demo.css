@@ -66,9 +66,6 @@ option {
   align-items: center;
 }
 
-#cacheButton{
-}
-
 /* below input range style based on alyssa hollands article: https://www.smashingmagazine.com/2021/12/create-custom-range-input-consistent-browsers/ */
 
 input[type="range"] {

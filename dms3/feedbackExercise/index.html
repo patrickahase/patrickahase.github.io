@@ -14,7 +14,7 @@
     <script src="script.js" defer></script>
     <script src="keyboardController.js" defer></script>
 
-    <title>Information Design Exercise</title>
+    <title>Feedback Exercise</title>
 
     <link rel="icon" type="image/png" href="./favicon.png">
 
@@ -23,19 +23,43 @@
   <body>
 
     <dialog id="introDialog">
-      <p>Hey this page wants to make some noise, is that ok?</p>      
-      <button id="dialogCloseBtn" autofocus>That's OK</button>
+      <div class="dialogBox">
+        <p>Hey this page wants to make some noise, is that ok?</p>      
+        <button id="dialogCloseBtn" autofocus>That's OK</button>
+      </div>      
     </dialog>
+
+    <h1>Feedback Exercise</h1>
     
     <button id="playbackToggle">▶️</button>
 
-    <input type="range" id="var1Range" min="1" max="25" step="1" value="1">
+    <div id="rangeSliderWrapper">
 
-    <input type="range" id="var2Range" min="1" max="100" step="1" value="50">
+      <div class="rangeBox">
+        <span>▪</span>
+        <input type="range" id="var1Range" min="1" max="25" step="1" value="1">
+        <span>░</span>
+      </div>
+      <div class="rangeBox">
+        <span>⍱</span>
+        <input type="range" id="var2Range" min="1" max="100" step="1" value="50">
+        <span>⍲</span>
+      </div>
+      <div class="rangeBox">
+        <span>╺</span>
+        <input type="range" id="var3Range" min="0" max="1" step="0.01" value="0.2">
+        <span>┅</span>
+      </div>
+      <div class="rangeBox">
+        <span style="transform: scale(25%);">✶</span>
+        <input type="range" id="var4Range" min="1" max="130" step="1" value="100">
+        <span>✺</span>
+      </div>
+    </div>
 
-    <input type="range" id="var3Range" min="0" max="1" step="0.01" value="0.2">
-
-    <input type="range" id="var4Range" min="1" max="130" step="1" value="100">
+    <div id="meterBox">
+      <p>Current Volume: <span id="meterOutputText"></span></p>
+    </div>
 
     <div class="keyboardBox">
       <div class="keyboardOctave" data-octave="3">

@@ -1,13 +1,3 @@
-/* 
-Information Design exercise :
-Visually design each of the four range sliders without using words (emojis are ok).
-You may work with CSS or sketch your design in another program.
-Your designs should use ambiguity : some indication, however abstract, of what you think the sliders do.
-Be mindful of the represented model of the slider : Do you want to use tick marks? How does your design match the range?
-*/
-
-/* marks for vol/dist */
-
 /////////////// Model of Instrument ///////////////
 
 /* 
@@ -110,6 +100,8 @@ pingPong.set({
   wet: 0.2
 });
 
+const meter = new Tone.Meter();
+
 ///////// Note Sequence
 
 let sequence = [
@@ -135,7 +127,7 @@ part.probability = 0.8;
 ///////// Init Connections
 
 function toneInit(){
-  polySynth.chain(filter, autoPanner, dist, pingPong, Tone.Destination);
+  polySynth.chain(filter, autoPanner, dist, pingPong, meter, Tone.Destination);
 }
 
 let isPlaying = false;
@@ -202,6 +194,16 @@ var4Input.addEventListener("input", e => {
   let distLevel = remapRange(clamp(value, 100, 130), 100, 130, 0, 1);
   dist.set({ distortion : distLevel });
 });
+
+///////// Feedback
+
+let meterText = document.getElementById("meterOutputText");
+
+let meterCheckInterval = 100;
+
+setInterval(() => {
+  meterText.innerHTML = meter.getValue()
+}, meterCheckInterval);
 
 ///////// Helper Functions
 

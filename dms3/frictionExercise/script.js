@@ -6,23 +6,25 @@ document.getElementById("waterCupMouth").addEventListener("click", () => {
 });
 
 document.getElementById("palette01").addEventListener("click", () => {
-    currentColour = `rgba(90, 0, 132, ${waterAmount})`;
+    currentColour = `rgba(160, 101, 205, ${waterAmount})`;
 });
 document.getElementById("palette02").addEventListener("click", () => {
-    currentColour = `rgba(230, 57, 0, ${waterAmount})`;
+    currentColour = `rgba(206, 121, 210, ${waterAmount})`;
+});
+document.getElementById("palette03").addEventListener("click", () => {
+    currentColour = `rgba(214, 143, 184, ${waterAmount})`;
+});
+document.getElementById("palette04").addEventListener("click", () => {
+    currentColour = `rgba(221, 162, 163, ${waterAmount})`;
 });
 
 
 
 function setBrushColour(newColour){
     ctx.strokeStyle = newColour;
-    console.log(ctx.strokeStyle);
 }
 
-function newAlphaForRGBA(){
-    //currentColour = ctx.strokeStyle;
-    console.log(waterAmount);
-    
+function newAlphaForRGBA(){    
     let newColour = currentColour.slice(0, currentColour.length-2) + waterAmount + ")";
     setBrushColour(newColour);
 }
