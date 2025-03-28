@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="keyboardStyle.css">
+    <script src="http://unpkg.com/tone"></script>
+
+    <script src="script.js" defer></script>
+    <script src="keyboardController.js" defer></script>
+
+    <title>Information Design Exercise</title>
+
+    <link rel="icon" type="image/png" href="./favicon.png">
+
+  </head>
+
+  <body>
+
+    <dialog id="introDialog">
+      <p>Hey this page wants to make some noise, is that ok?</p>      
+      <button id="dialogCloseBtn" autofocus>That's OK</button>
+    </dialog>
+    
+    <button id="playbackToggle">▶️</button>
+
+    <input type="range" id="var1Range" min="1" max="25" step="1" value="1">
+
+    <input type="range" id="var2Range" min="1" max="100" step="1" value="50">
+
+    <input type="range" id="var3Range" min="0" max="1" step="0.01" value="0.2">
+
+    <input type="range" id="var4Range" min="1" max="130" step="1" value="100">
+
+    <div class="keyboardBox">
+      <div class="keyboardOctave" data-octave="3">
+        <div class="whiteKeyBox">
+          <button class="whiteKey" data-note="c"></button>
+          <button class="whiteKey" data-note="d"></button>
+          <button class="whiteKey" data-note="e"></button>
+          <button class="whiteKey" data-note="f"></button>
+          <button class="whiteKey" data-note="g"></button>
+          <button class="whiteKey" data-note="a"></button>
+          <button class="whiteKey" data-note="b"></button>
+        </div>
+        <div class="blackKeyBox">
+          <div class="blackKeySpace"></div>
+          <button class="blackKey" data-note="c#"></button>
+          <button class="blackKey" data-note="d#"></button>
+          <div class="blackKeySpace"></div>
+          <div class="blackKeySpace"></div>
+          <button class="blackKey" data-note="f#"></button>
+          <button class="blackKey" data-note="g#"></button>
+          <button class="blackKey" data-note="a#"></button>
+          <div class="blackKeySpace"></div>
+        </div>
+      </div>      
+      <div class="keyboardOctave" data-octave="4">
+        <div class="whiteKeyBox">
+          <button class="whiteKey" data-note="c"></button>
+          <button class="whiteKey" data-note="d"></button>
+          <button class="whiteKey" data-note="e"></button>
+          <button class="whiteKey" data-note="f"></button>
+          <button class="whiteKey" data-note="g"></button>
+          <button class="whiteKey" data-note="a"></button>
+          <button class="whiteKey" data-note="b"></button>
+        </div>
+        <div class="blackKeyBox">
+          <div class="blackKeySpace"></div>
+          <button class="blackKey" data-note="c#"></button>
+          <button class="blackKey" data-note="d#"></button>
+          <div class="blackKeySpace"></div>
+          <div class="blackKeySpace"></div>
+          <button class="blackKey" data-note="f#"></button>
+          <button class="blackKey" data-note="g#"></button>
+          <button class="blackKey" data-note="a#"></button>
+          <div class="blackKeySpace"></div>
+        </div>
+      </div>      
+    </div>
+
+    </div>
+
+  </body>
+
+</html>

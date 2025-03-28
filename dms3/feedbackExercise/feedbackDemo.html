@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="demo.css">
+
+    <script src="https://unpkg.com/konva@9/konva.min.js"></script>
+
+    <script src="demoScript.js" defer></script>
+
+    <title>Feedback Demos</title>
+
+    <link rel="icon" type="image/png" href="./favicon.png">
+
+  </head>
+
+  <body>
+
+    <h1 id="pageHeading">Feedback Demos</h1>
+
+    <p>note: non-responsive, you need to refresh after resizing window (including opening dev tools)</p>
+
+    <div id="stageContainer"></div>
+
+    <div class="controlBar">
+      <div class="controlBox"></div>
+      <div class="controlBox">
+        <button id="cacheButton">Update Cache</button>
+      </div>
+      <div class="controlBox">
+        <label for="temp">Change cursor delay (ms):</label><br />
+        <input type="range" id="cursorDelayInput" name="temp" list="markers" min="0" max="1000" step="100" value="0" />
+        <datalist id="markers">
+          <option value="0" label="0"></option>
+          <option value="100" label="100"></option>
+          <option value="200" label="200"></option>
+          <option value="300" label="300"></option>
+          <option value="400" label="400"></option>
+          <option value="500" label="500"></option>
+          <option value="600" label="600"></option>
+          <option value="700" label="700"></option>
+          <option value="800" label="800"></option>
+          <option value="900" label="900"></option>
+          <option value="1000" label="1000"></option>
+        </datalist>
+      </div>
+      
+      
+    </div>
+
+    
+
+
+  </body>
+
+</html>

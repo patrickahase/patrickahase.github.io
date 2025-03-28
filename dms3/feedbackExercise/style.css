@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+  box-sizing: border-box;
+  /* box-sizing: border-box;
+  margin: 0;
+  font-family: "Work Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal; */
+}
+
+:root{
+  /* based Foxfire Palette by Lotaru https://lospec.com/palette-list/foxfire */
+  --col01: #000000;
+  --col02: #8e8eff;
+  --col03: #fdfdff;
+  --col04: #1919ff;
+  --border: solid 4px var(--col01);
+}
+
+h1{
+  text-align: center;
+}
+
+dialog{
+  margin: auto;
+}
+dialog::backdrop{
+  background-color: rgba(0, 0, 0, 0.397);
+}
+
+#playbackToggle{
+  width: 2rem; height: 2rem;
+}

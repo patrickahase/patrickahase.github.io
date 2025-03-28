@@ -1,9 +1,14 @@
 /* set up stage and layer */
 let stage = new Konva.Stage({
     container: 'stageContainer',
-    width: 500,
+    width: window.innerWidth / 2,
     height: 500
 });
+
+window.addEventListener("resize", () => {
+    stage.width(window.innerWidth / 2);
+});
+
 
 let layer = new Konva.Layer();
 stage.add(layer);
@@ -92,9 +97,9 @@ document.addEventListener("mouseup", () => {
 });
 
 /////////////////////////////////////////////////////// Filters
-let noiseOn = true;
+/* let noiseOn = true;
 let blurOn = true;
-let pixelateOn = true;
+let pixelateOn = true; */
 
 let activeFilterList = [];
 

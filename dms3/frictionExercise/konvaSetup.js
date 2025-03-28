@@ -1,3 +1,6 @@
+/* brush texture from: https://www.onlygfx.com/8-watercolor-brush-texture-png-transparent/ */
+/* technique from https://web.archive.org/web/20190113115756/http://www.tricedesigns.com/2012/01/04/sketching-with-html5-canvas-and-brush-images/ */
+/* and from https://medium.com/@mpias/html-canvas-how-to-colorize-a-sprite-3150195021bf */
 /* set up stage and layer */
 let stage = new Konva.Stage({
     container: 'stageContainer',
@@ -23,12 +26,22 @@ const image = new Konva.Image({
 });
 layer.add(image);
 
-/* find context and set drawing variables */
-/* for more details about context options : https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D */
 const ctx = canvas.getContext('2d');
-ctx.strokeStyle = "rgba(255, 255, 255, 0)";
+ctx.globalCompositeOperation = 'source-over';
+let brushImage = new Image();
+brushImage.src = "./assets/watercolor-brush-texture-3-scale.png";
+brushImage.onload = () => {
+  const colImg = colourize(brushImage, 1, 0, 0);
+}
+
+let halfBrushW = brushImage.width/2;
+let halfBrushH = brushImage.height/2;
+
+
+/* maybe don't need */
+/* ctx.strokeStyle = "rgba(255, 255, 255, 0)";
 ctx.lineJoin = "round";
-ctx.lineWidth = 5;
+ctx.lineWidth = 5; */
 
 /* set up drawing state */
 let isPainting = false;
@@ -43,33 +56,46 @@ let mode = 'brush';
 /* first we need to define the drawing function */
 
 function draw(){
-    if(mode === 'brush'){
+    /* if(mode === 'brush'){
         ctx.globalCompositeOperation = 'source-over';
     }
 
     if(mode === 'eraser'){
         ctx.globalCompositeOperation = 'destination-out';
-    }
+    } */
     
-    ctx.beginPath();
+    //ctx.beginPath();
     const localPos = {
         x: lastPointerPos.x - image.x(),
         y: lastPointerPos.y - image.y()
     };
-    ctx.moveTo(localPos.x, localPos.y);
+    //ctx.moveTo(localPos.x, localPos.y);
 
     const pos = stage.getPointerPosition();
     const newLocalPos = {
         x: pos.x - image.x(),
         y: pos.y - image.y()
     };
-    ctx.lineTo(newLocalPos.x, newLocalPos.y);
-    ctx.closePath();
-    ctx.stroke();
+    let dist = parseInt(Trig.distBtwn2Points(localPos, newLocalPos));
+    let angle = parseInt(Trig.angleBtwn2Points(localPos, newLocalPos));
+
+    let x,y;
+    for (let i = 0; (i <= dist || i == 0); i++){
+        x = localPos.x + (Math.sin(angle) * i) - halfBrushW;
+        y = localPos.y + (Math.cos(angle) * i) - halfBrushH;
+        ctx.globalAlpha = waterAmount;
+        ctx.drawImage(brushImage, x, y);
+    }
+    //ctx.lineTo(newLocalPos.x, newLocalPos.y);
+    //ctx.closePath();
+    //ctx.stroke();
 
     lastPointerPos = pos;
 
-    waterAmount -= 0.005;
+    if (waterAmount >= 0.005){
+      waterAmount -= 0.005;
+    }
+    
     //prevColour = ctx.strokeStyle;
     //console.log(prevColour);
     newAlphaForRGBA();
@@ -93,3 +119,36 @@ document.addEventListener("mouseup", () => {
     stage.off('mousemove', draw);
 });
 
+
+/////////////////////////////////////////////////////// Drawing Canvas
+let Trig = {
+    distBtwn2Points: (p1, p2) => {
+        let dx = p2.x - p1.x;
+        let dy = p2.y - p1.y;
+        return Math.sqrt(Math.pow(dx,2) + Math.pow(dy, 2));
+    },
+    angleBtwn2Points: (p1, p2) => {
+        let dx = p2.x - p1.x;
+        let dy = p2.y - p1.y;
+        return Math.atan2(dx, dy);
+    }
+}
+
+function colourize(img, r, g, b){
+  const offScreen = new OffscreenCanvas(brushImage.width, brushImage.height);
+  const osCTX = offScreen.getContext("2d");
+  
+  osCTX.drawImage(img, 0, 0);
+
+  const imgData = osCTX.getImageData(0, 0, brushImage.width, brushImage.height);
+
+  for (let i = 0; i < imgData.data.length; i += 4){
+    imgData.data[i + 0] *= r;
+    imgData.data[i + 1] *= g;
+    imgData.data[i + 2] *= b;
+  }
+
+  osCTX.putImageData(imgData, 0, 0);
+
+  return offScreen;
+}
