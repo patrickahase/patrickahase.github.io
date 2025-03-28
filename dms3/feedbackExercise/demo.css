@@ -36,16 +36,12 @@ button:hover{
 button:active{
   filter: invert();
 }
-
-input[type="range"]{
-  width: 12vw;
-}
 datalist {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   writing-mode: vertical-lr;
-  width: 12vw;
+  width: 15rem;
 }
 option {
   padding: 0;

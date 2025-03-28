@@ -1,6 +1,7 @@
 
 .keyboardBox{
     display: flex;
+    height: 10rem;
   }
   
   .keyboardOctave{

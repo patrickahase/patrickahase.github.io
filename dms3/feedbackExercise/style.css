@@ -56,6 +56,12 @@ dialog::backdrop{
   border-radius: 1rem;
 }
 
+.feedbackExampleWrapper{
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
 #rangeSliderWrapper{
   display: flex;
   flex-direction: column;
