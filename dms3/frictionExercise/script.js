@@ -1,34 +1,33 @@
-let waterAmount = 0.5;
-let currentColour = "rgba(255, 255, 255, 0)";
+
+
+document.getElementById("palette01").addEventListener("click", addColour);
+document.getElementById("palette02").addEventListener("click", addColour);
+document.getElementById("palette03").addEventListener("click", addColour);
+document.getElementById("palette04").addEventListener("click", addColour);
+
+
+function addColour(e){
+  let buttonClicked = e.target;
+}
 
 document.getElementById("waterCupMouth").addEventListener("click", () => {
-    waterAmount = 1;
+  waterAmount = 1;
 });
 
-document.getElementById("palette01").addEventListener("click", () => {
-    currentColour = `rgba(160, 101, 205, ${waterAmount})`;
-});
-document.getElementById("palette02").addEventListener("click", () => {
-    currentColour = `rgba(206, 121, 210, ${waterAmount})`;
-});
-document.getElementById("palette03").addEventListener("click", () => {
-    currentColour = `rgba(214, 143, 184, ${waterAmount})`;
-});
-document.getElementById("palette04").addEventListener("click", () => {
-    currentColour = `rgba(221, 162, 163, ${waterAmount})`;
-});
-
-
+/* expects an rgb() string and a=n alpha value as a number */
+function rgbaFromRGBString(rgbString, newAlpha){
+  /* first we need to get the number values from our string */
+  /* the below will return an array with our seperate r,g,b values */
+  let colours = rgbString.match(/\d+/g);
+  /* then we need to turn this, plus our alpha number into an rgba() string */
+  /* below uses template literals to make short script */
+  /* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals */
+  let newRGBAString = `rgba(${colours[0]}, ${colours[1]}, ${colours[2]}, ${newAlpha})`;
+  /* finally return this new string */
+  return newRGBAString;
+}
 
 function setBrushColour(newColour){
-    ctx.strokeStyle = newColour;
+  ctx.strokeStyle = newColour;
 }
-
-function newAlphaForRGBA(){    
-    let newColour = currentColour.slice(0, currentColour.length-2) + waterAmount + ")";
-    setBrushColour(newColour);
-}
-
-
-
 

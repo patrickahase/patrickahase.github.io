@@ -60,11 +60,14 @@ h1{
 }
 
 .colourPaletteBox{
-  width: 70px;
-  height: 280px;
+  width: 80px;
+  height: 290px;
+  padding: 5px;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
-  background-color: var(--col08);
+  background-color: var(--col02);
+  transform: translateX(60px) rotate(-15deg);
 }
  
 .paletteColour{

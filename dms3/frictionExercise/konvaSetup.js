@@ -28,7 +28,7 @@ ctx.globalCompositeOperation = 'source-over';
 
 
 /* maybe don't need */
-ctx.strokeStyle = "rgba(255, 255, 255, 0)";
+ctx.strokeStyle = "rgba(255, 255, 255, 1)";
 ctx.lineJoin = "round";
 ctx.lineWidth = 5;
 
@@ -36,7 +36,6 @@ ctx.lineWidth = 5;
 let isPainting = false;
 let lastPointerPos;
 let mode = 'brush';
-let waterLeak = 0.005;
 
 /* now we need to do some event handling */
 /* this is similar to how addEventListener works but slightly different for Konva */
@@ -66,20 +65,12 @@ function draw(){
         x: pos.x - image.x(),
         y: pos.y - image.y()
     };
-    let dist = parseInt()
+
     ctx.lineTo(newLocalPos.x, newLocalPos.y);
     ctx.closePath();
     ctx.stroke();
 
     lastPointerPos = pos;
-
-    if(waterAmount >= waterLeak) {
-      waterAmount -= waterLeak;
-    }
-    
-    //prevColour = ctx.strokeStyle;
-    //console.log(prevColour);
-    newAlphaForRGBA();
 
     layer.batchDraw();
 }
@@ -99,6 +90,3 @@ document.addEventListener("mouseup", () => {
     /* remove draw listener on mouseup */
     stage.off('mousemove', draw);
 });
-
-
-/////////////////////////////////////////////////////// Drawing Canvas

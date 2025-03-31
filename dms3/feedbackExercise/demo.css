@@ -70,6 +70,7 @@ input[type="range"] {
   background: transparent;
   cursor: pointer;
   width: 15rem;
+  margin: 2rem;
 }
 /* Removes default focus */
 input[type="range"]:focus {
