@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+  box-sizing: border-box;
+}
+
+:root{
+/* Paperback-2 Palette Created by Doph */
+/* https://lospec.com/palette-list/paperback-2 */
+  --col02: #382b26;
+  --col01: #b8c2b9;
+  --border: solid 4px var(--col01);
+}
+
+body {
+  font-family: "Work Sans", serif;
+  background-color: var(--col01);
+  color: var(--col02);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+button{
+  background-color: var(--col02);
+  color: var(--col01);
+  border-width: 0; 
+  font-size: 2rem;
+  transition: 0.03s;
+  border-radius: 1rem;
+}
+button:hover{
+  border-radius: 0;
+}
+button:active{
+  filter: invert();
+}
+datalist {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  writing-mode: vertical-lr;
+  width: 15rem;
+}
+option {
+  padding: 0;
+}
+
+#stageContainer{
+  width: 80%;
+}
+
+.controlBar{
+  width: calc(80% + 12px);
+  display: flex;
+}
+.controlBox{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* below input range style based on alyssa hollands article: https://www.smashingmagazine.com/2021/12/create-custom-range-input-consistent-browsers/ */
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 15rem;
+  margin: 2rem;
+}
+/* Removes default focus */
+input[type="range"]:focus {
+  outline: none;
+}
+
+/***** Chrome, Safari, Opera, and Edge Chromium *****/
+/***** Track Styles *****/
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: var(--col02);
+  height: 0.5rem;
+}
+/***** Thumb Styles *****/
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  margin-top: -12px; /* Centers thumb on the track */
+  background-color: var(--col02);
+  height: 2rem;
+  width: 1rem;    
+}
+input[type="range"]:focus::-webkit-slider-thumb {
+  border: 1px solid var(--col01);
+  outline: 3px solid var(--col02);
+  outline-offset: 0.125rem;
+}
+
+/******** Firefox ********/
+input[type="range"]::-moz-range-track {
+  background: var(--col02);
+  height: 0.5rem;
+}
+/***** Thumb Styles *****/
+input[type="range"]::-moz-range-thumb {
+  border: none; /*Removes extra border that FF applies*/
+  border-radius: 0; /*Removes default border-radius that FF applies*/
+  background-color: var(--col02);
+  height: 2rem;
+  width: 1rem;
+}
+input[type="range"]:focus::-moz-range-thumb {
+  border: 1px solid var(--col01);
+  outline: 3px solid var(--col02);
+  outline-offset: 0.125rem;     
+}
