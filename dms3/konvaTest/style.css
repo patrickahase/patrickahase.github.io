@@ -23,10 +23,15 @@ body{
   flex-direction: column;
   align-items: center;
   background-color: var(--col01);
+  color: #e8e8e8;
 }
 
 h1{
   text-align: center;
   color: var(--col04);
   margin-bottom: 1rem;
+}
+
+#konvaStage{
+  background-color: #e8e8e8;
 }

@@ -2,10 +2,10 @@
 let widthReport = document.getElementById("reportWidthText");
 
 /* change html text */
-widthReport.innerHTML = "about that wide";
+widthReport.innerHTML = window.innerWidth;
 
 function updateReport(){
-  alert("this button isn't working yet");
+  widthReport.innerHTML = findWindowSize.currentHeight();
 }
 
 /* find button */

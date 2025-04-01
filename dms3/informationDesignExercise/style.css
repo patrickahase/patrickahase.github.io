@@ -33,3 +33,23 @@ dialog::backdrop{
 #playbackToggle{
   width: 2rem; height: 2rem;
 }
+
+.range4wrapper{
+  width: fit-content;
+  margin: 2rem;
+}
+
+#var4Range{
+  width: 8rem;
+}
+
+.range4Box{
+  display: flex;
+  
+  width: 10rem;
+}
+
+#svgwrapper{
+  height: 1rem;
+  width: 100%;
+}
