@@ -72,6 +72,8 @@ function draw(){
 
     lastPointerPos = pos;
 
+    dryingBrush();
+
     layer.batchDraw();
 }
 

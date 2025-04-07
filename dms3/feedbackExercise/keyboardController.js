@@ -15,26 +15,26 @@ window.addEventListener("mouseup", () => {mouseDown = false});
 
 allKeys.forEach(key => {
     key.addEventListener("mousedown", e => {
-        //e.target.classList.add("activeKey");
+        e.target.classList.add("activeKey");
         let note = e.target.dataset.note;
         let octave = e.target.parentElement.parentElement.dataset.octave;
         keyboardSynth.triggerAttack(note+octave);
     });
     key.addEventListener("mouseup", e => {
-        //e.target.classList.remove("activeKey");
+        e.target.classList.remove("activeKey");
         let note = e.target.dataset.note;
         let octave = e.target.parentElement.parentElement.dataset.octave;
         keyboardSynth.triggerRelease(note+octave);
     });
     key.addEventListener("mouseenter", e => {
         if(mouseDown === false){ return }
-        //e.target.classList.add("activeKey");
+        e.target.classList.add("activeKey");
         let note = e.target.dataset.note;
         let octave = e.target.parentElement.parentElement.dataset.octave;
         keyboardSynth.triggerAttack(note+octave);
     });
     key.addEventListener("mouseleave", e => {
-        //e.target.classList.remove("activeKey");
+        e.target.classList.remove("activeKey");
         let note = e.target.dataset.note;
         let octave = e.target.parentElement.parentElement.dataset.octave;
         keyboardSynth.triggerRelease(note+octave);

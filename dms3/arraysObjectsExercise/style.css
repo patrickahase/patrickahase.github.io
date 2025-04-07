@@ -1,0 +1,31 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+:root{
+    --colour-one: rgb(0,0,0);
+    --colour-two: rgb(100,100,100);
+    --colour-three: rgb(180,180,180);
+    --colour-four: rgb(240,240,240);
+    --border-one: dashed 2px white;
+}
+
+body {
+  height: 100%;
+  background-color: var(--colour-three);
+}
+
+.ListDiv{
+  background-color: var(--colour-four);
+  border: solid 2px var(--colour-one);
+  width: 25vw;
+}
+
+.Draggable{
+  position: relative;
+}
+.Draggable > h3, p{
+  pointer-events: none;
+  user-select: none;
+}
