@@ -26,6 +26,7 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
   background-color: var(--col01);
   color: var(--col08);
 }
@@ -60,32 +61,47 @@ h1{
 }
 
 .colourPaletteBox{
-  width: 80px;
+  width: 160px;
   height: 290px;
   padding: 5px;
   border-radius: 5px;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
   background-color: var(--col02);
   transform: translateX(60px) rotate(-15deg);
 }
  
 .paletteColour{
-  flex: 1;
+  width: 4rem; height: 4rem;
   border-radius: 50%;
   cursor: inherit;
 }
 #palette01{
-  background-color: var(--col03);
+  background-color: var(--col01);
 }
 #palette02{
-  background-color: var(--col04);
+  background-color: var(--col02);
 }
 #palette03{
-  background-color: var(--col05);
+  background-color: var(--col03);
 }
 #palette04{
+  background-color: var(--col04);
+}
+#palette05{
+  background-color: var(--col05);
+}
+#palette06{
   background-color: var(--col06);
+}
+#palette07{
+  background-color: var(--col07);
+}
+#palette08{
+  background-color: var(--col08);
 }
 
 

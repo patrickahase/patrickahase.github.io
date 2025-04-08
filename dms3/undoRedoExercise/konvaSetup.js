@@ -26,7 +26,6 @@ layer.add(image);
 const ctx = canvas.getContext('2d');
 ctx.globalCompositeOperation = 'source-over';
 
-
 /* maybe don't need */
 ctx.strokeStyle = "rgba(255, 255, 255, 1)";
 ctx.lineJoin = "round";
@@ -72,6 +71,8 @@ function draw(){
 
     lastPointerPos = pos;
 
+    dryingBrush();
+    
     layer.batchDraw();
 }
 
