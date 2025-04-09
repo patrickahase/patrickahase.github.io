@@ -87,7 +87,10 @@ image.on('mousedown', () => {
 /* so we could listen for mouseup there. as our stage is only a part of the page */
 /* we have to instead listen on the document itself */
 document.addEventListener("mouseup", () => {
+    if(isPainting){
+      undoStates.push(canvas.toDataURL());
+    }
     isPainting = false;
     /* remove draw listener on mouseup */
-    stage.off('mousemove', draw);
+    stage.off('mousemove', draw);  
 });

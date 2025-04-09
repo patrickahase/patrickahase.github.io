@@ -5,9 +5,16 @@ let colourNameTwo = "Coral";
 let colourNameThree = "Cyan";
 let colourNameFour = "Olive";
 
-let colourNames = [];
+let colourNames = [
+  "Bisque",
+  "Coral",
+  "Cyan",
+  "Olive"
+];
 
-arrayDisplay.innerHTML = colourNameOne;
+colourNames.push("Red");
+
+arrayDisplay.innerHTML = colourNames;
 
 
 
@@ -16,7 +23,7 @@ let pickColBtn = document.getElementById("pickColour");
 pickColBtn.addEventListener("click", pickColour);
 
 function pickColour(){
-
+  arrayDisplay.innerHTML = colourNames[0];
 }
 
 
@@ -26,7 +33,8 @@ let randColBtn = document.getElementById("randColour");
 randColBtn.addEventListener("click", randomColour);
 
 function randomColour(){
-
+  let randomNumber = getRandomIntRange(0, colourNames.length-1);
+  arrayDisplay.innerHTML = colourNames[randomNumber];
 }
 
 

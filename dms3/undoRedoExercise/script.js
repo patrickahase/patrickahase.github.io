@@ -2,15 +2,13 @@ let waterAmount = 0.5;
 let dryAmount = 0.005;
 let currentColour = "rgb(255, 255, 255)";
 
-document.getElementById("palette01").addEventListener("click", addColour);
-document.getElementById("palette02").addEventListener("click", addColour);
-document.getElementById("palette03").addEventListener("click", addColour);
-document.getElementById("palette04").addEventListener("click", addColour);
-document.getElementById("palette05").addEventListener("click", addColour);
-document.getElementById("palette06").addEventListener("click", addColour);
-document.getElementById("palette07").addEventListener("click", addColour);
-document.getElementById("palette08").addEventListener("click", addColour);
+let paletteColourSelectors = document.getElementsByClassName("paletteColour");
 
+let colourSelectorsArray = Array.from(paletteColourSelectors);
+
+colourSelectorsArray.forEach(selector => {
+  selector.addEventListener("click", addColour);
+});
 
 function addColour(e){
   let buttonClicked = e.target;
@@ -53,8 +51,11 @@ function setBrushColour(newColour){
 /* we created our canvas in konvaSetup.js and called it canvas */
 
 document.getElementById("undoBtn").addEventListener("click", () => {
-  
-  drawDataURLToCanvas(prevState);
+  if(undoStates.length >= 1){
+    let newUndoImage = undoStates.pop();
+    console.log(newUndoImage);
+    drawDataURLToCanvas(newUndoImage);
+  }
 });
 
 document.getElementById("redoBtn").addEventListener("click", () => {
@@ -65,14 +66,26 @@ document.getElementById("redoBtn").addEventListener("click", () => {
 let prevState;
 //
 
+let undoStates = [canvas.toDataURL()];
+let redoStates = [];
+
 document.getElementById("saveBtn").addEventListener("click", () => {
   let canvasCapture = canvas.toDataURL();
   /* remember to comment or delete below if using in production */
-  //console.log(canvasCapture);
+  console.log(canvasCapture);
   ///
   prevState = canvasCapture;
+
+  //downloadCanvasImage(canvasCapture, "myImage");
   ///
 });
+
+function downloadCanvasImage(dataURL, fileName){
+  let downloadLink = document.createElement("a");
+  downloadLink.href = dataURL;
+  downloadLink.download = fileName;
+  downloadLink.click();
+}
 
 function drawDataURLToCanvas(imgDataURL){
   /* create img element */
