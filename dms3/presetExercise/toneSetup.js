@@ -51,21 +51,21 @@ document.getElementById("introDialog").showModal();
 
 ///////// Define Input Variables
 
-let var1 = 5;
+let spreadAmount = 5;
 let var1Input = document.getElementById("var1Range");
-var1Input.value = var1;
+var1Input.value = spreadAmount;
 
-let var2 = 50;
+let tempoFilterFrequencyAmount = 50;
 let var2Input = document.getElementById("var2Range");
-var2Input.value = var2;
+var2Input.value = tempoFilterFrequencyAmount;
 
-let var3 = 0.2;
+let delayChanceAmount = 0.2;
 let var3Input = document.getElementById("var3Range");
-var3Input.value = var3;
+var3Input.value = delayChanceAmount;
 
-let var4 = 100;
+let volumeDistAmount = 100;
 let var4Input = document.getElementById("var4Range");
-var4Input.value = var4;
+var4Input.value = volumeDistAmount;
 
 ///////// Synthesizer
 

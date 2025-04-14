@@ -88,7 +88,7 @@ image.on('mousedown', () => {
 /* we have to instead listen on the document itself */
 document.addEventListener("mouseup", () => {
     if(isPainting){
-      undoStates.push(canvas.toDataURL());
+      saveUndoState();
     }
     isPainting = false;
     /* remove draw listener on mouseup */

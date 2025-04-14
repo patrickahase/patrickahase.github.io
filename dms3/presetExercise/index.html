@@ -56,8 +56,34 @@
         <input type="range" id="var4Range" min="1" max="130" step="1" value="100">
         <span>✺</span>
       </div>
+
     </div>
 
+    <fieldset>
+      <legend>Select a preset:</legend>
+
+      <div id="presetBox">
+
+        <div>
+          <input type="radio" id="presetOne" name="presets" value="presetOne" checked />
+          <label for="presetOne">1</label>
+        </div>
+      
+        <div>
+          <input type="radio" id="presetTwo" name="presets" value="presetTwo" />
+          <label for="presetTwo">2</label>
+        </div>
+      
+        <div>
+          <input type="radio" id="presetThree" name="presets" value="presetThree" />
+          <label for="presetThree">3</label>
+        </div>
+
+      </div>
+      
+    </fieldset>
+
+    
     <div id="meterBox">
       <p>Current Volume: <span id="meterOutputText"></span></p>
     </div>

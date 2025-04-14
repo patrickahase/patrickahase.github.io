@@ -79,6 +79,27 @@ dialog::backdrop{
   font-size: 2rem;
 }
 
+#presetBox{
+  display: flex;
+  justify-content: space-between;
+  width: 10rem;
+}
+
+input[type="radio"] {
+  appearance: none;
+  border-radius: 50%;
+  width: 1rem; height: 1rem;
+  border: 2px solid #999;
+  transition: all linear;
+  transition-duration: 0.2s;
+  margin-right: 0.5rem;
+  position: relative;
+  top: 0.2rem;
+}
+input[type="radio"]:checked {
+  border: 8px solid ;
+}
+
 
 /* below input range style based on alyssa hollands article: https://www.smashingmagazine.com/2021/12/create-custom-range-input-consistent-browsers/ */
 
