@@ -14,7 +14,7 @@
     <script src="konvaSetup.js" defer></script>
     <script src="helperFunctions.js" defer></script>
 
-    <script src="basicAnimation.js" defer></script>
+    <script src="followAnimation.js" defer></script>
 
     <title>Procedural Animation Examples</title>
 
@@ -24,13 +24,19 @@
 
   <body>
 
-    <h1 id="pageHeading">Basic Animation Example</h1>
+    <h1 id="pageHeading">Follow Animation Example</h1>
 
-    <p>Logic stored in basicAnimation.js</p>
+    <p>Logic stored in followAnimation.js</p>
 
     <div id="stageContainer"></div>
 
-    <button id="circleAdd">Add Circle</button>
+    <label for="xPos">New X Pos:</label>
+    <input type="number" id="inputXPos" name="xPos" min="0" value="0" />
+    
+    <label for="yPos">New Y Pos:</label>
+    <input type="number" id="inputYPos" name="yPos" min="0" value="0" />
+
+    <button id="animationTrigger">Start Animation</button>
 
   </body>
 
