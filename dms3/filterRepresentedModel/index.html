@@ -8,7 +8,6 @@
   <link rel="Stylesheet" href="style.css">
 
   <script src="customFilterAPI.js" defer></script>
-  <script src="xyController.js" defer></script>
   <script src="script.js" defer></script>
 
   <!-- partially based on my object animacy project, and the article linked below -->
@@ -19,18 +18,11 @@
 
   <h1>Lorem ipsum dolor sit amet</h1>
 
-  <div id="xyControlBox">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" id="xySVGEl">
-      <rect width="94" height="94" fill="var(--col02)"
-            x="3" y="3" id="xyPad" />
-      <circle r="3" fill="var(--col03)"
-              cx="3" cy="3" id="xyPosMarker" />
-    </svg>
-  </div>
+  <input type="range" min="1" max="10" id="filterControlOne" step="0.01" />
 
-  <input type="text" placeholder="Lorem ipsum dolor sit amet" />
+  <input type="range" min="1" max="100" id="filterControlTwo" step="1" />
 
-  <input type="range" min="1" max="2" id="satRange" step="0.01" />
+  <input type="range" min="1" max="20" id="filterControlThree" step="0.1" />
   
 
   <!-- this is where the svg filter lives -->
@@ -56,7 +48,7 @@
           values=" 1.000  0.000  0.000  0.000  0.000 
                    0.000  1.000  0.000  0.000  0.000 
                    0.000  0.000  1.000  0.000  0.000 
-                   0.000  0.000  0.000  0.900  0.000">
+                   0.000  0.000  0.000  0.300  0.000">
         </feColorMatrix>
 
         <!-- second layer -->

@@ -54,6 +54,7 @@ function setBrushColour(newColour){
 let undoStack = [];
 let redoStack = [];
 
+<<<<<<< Updated upstream:dms3/undoRedoExample/script.js
 /* save our current (original) state */
 /* this is currently set up for the canvas image, so its going to use toDataURL() on the canvas */
 /* if you were using this for another type of saved data, such as an object, you would need to change this out */
@@ -67,6 +68,13 @@ function saveUndoState(){
   /* if you want unlimited undo remove them following three lines */
   if(undoStack.length === maxUndo){ 
     undoStack.shift();
+=======
+document.getElementById("undoBtn").addEventListener("click", () => {
+  //console.log("click");
+  if(undoStates.length >= 1){
+    let newUndoImage = undoStates.pop();
+    drawDataURLToCanvas(newUndoImage);
+>>>>>>> Stashed changes:dms3/undoRedoExercise/script.js
   }
   /* before we update our current state - add the old version to our undoStack */
   undoStack.push(currentState);
@@ -93,6 +101,7 @@ function restoreUndoState(){
   }
 }
 
+<<<<<<< Updated upstream:dms3/undoRedoExample/script.js
 /* this restores our state from the redo stack */
 function restoreRedoState(){
   /* check if there's any redo states */
@@ -106,6 +115,34 @@ function restoreRedoState(){
     /* then draw to canvas */
     drawDataURLToCanvas(newState);
   }
+=======
+});
+
+//
+let prevState;
+//
+
+let undoStates = [canvas.toDataURL()];
+let redoStates = [];
+
+document.getElementById("saveBtn").addEventListener("click", () => {
+  let canvasCapture = canvas.toDataURL();
+  /* remember to comment or delete below if using in production */
+  
+  //console.log(canvasCapture);
+  ///
+  prevState = canvasCapture;
+
+  //downloadCanvasImage(canvasCapture, "myImage");
+  ///
+});
+
+function downloadCanvasImage(dataURL, fileName){
+  let downloadLink = document.createElement("a");
+  downloadLink.href = dataURL;
+  downloadLink.download = fileName;
+  downloadLink.click();
+>>>>>>> Stashed changes:dms3/undoRedoExercise/script.js
 }
 
 function drawDataURLToCanvas(imgDataURL){
