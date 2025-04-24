@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://unpkg.com/konva@9/konva.min.js"></script>
+
+    <script src="script.js" defer></script>
+
+    <title>Feedback Demos</title>
+
+    <link rel="icon" type="image/png" href="./favicon.png">
+
+  </head>
+
+  <body>
+
+    <h1 id="pageHeading">Random Demos</h1>
+
+    <fieldset>
+      <legend>Basic random number:</legend>
+      <button id="basicRandomBtn">Generate random</button>
+      <p>Result: <span id="basicRandomSpan"></span></p>      
+    </fieldset>
+    
+    <fieldset>
+      <legend>Random number in range:</legend>
+      <p>Between 5 and 10</p>
+      <button id="randomRangeBtn">Generate random</button>
+      <p>Result: <span id="randomRangeSpan"></span></p>      
+    </fieldset>
+    
+    <fieldset>
+      <legend>Random integer in range:</legend>
+      <p>Between 0 and 5</p>
+      <button id="randomIntRangeBtn">Generate random</button>
+      <p>Result: <span id="randomIntRangeSpan"></span></p>      
+    </fieldset>
+    
+    <fieldset>
+      <legend>Random non-repeating integer in range:</legend>
+      <p>Between 2 and 8</p>
+      <p>Last random number: <span id="lastRandomNonRepIntRangeSpan"></span></p>
+      <button id="randomNonRepIntRangeBtn">Generate random</button>
+      <p>Result: <span id="randomNonRepIntRangeSpan"></span></p>      
+    </fieldset>
+    
+    <fieldset>
+      <legend>Random pick from list:</legend>
+      <p>List: <span id="listForRandomSpan"></span></p>
+      <button id="randomFromListBtn">Generate random</button>
+      <p>Result: <span id="randomFromListSpan"></span></p>      
+    </fieldset>
+    
+    <fieldset>
+      <legend>Random cycle through list:</legend>
+      <p>List: <span id="listForRandomCycleSpan"></span></p>
+      <button id="randomFromListCycleBtn">Generate random</button>
+      <p>Result: <span id="randomFromListCycleSpan"></span></p>      
+    </fieldset>
+
+  </body>
+
+</html>
