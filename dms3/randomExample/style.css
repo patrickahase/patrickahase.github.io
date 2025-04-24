@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+  box-sizing: border-box;
+}
+
+:root{
+/* Paperback-2 Palette Created by Doph */
+/* https://lospec.com/palette-list/paperback-2 */
+  --col02: #382b26;
+  --col01: #b8c2b9;
+  --border: solid 4px var(--col01);
+}
+
+body {
+  font-family: "Work Sans", serif;
+  background-color: var(--col01);
+  color: var(--col02);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+button{
+  background-color: var(--col02);
+  color: var(--col01);
+  border-style: double;
+  font-size: 1.25rem;
+}
+button:active{
+  filter: invert();
+}
+
+.randomResult{
+  width: 1.25rem; height: 1.25rem;
+  background-color: var(--col02);
+  color: var(--col01);
+  border: 2px white double;
+  font-size: 1.25rem;
+}
+
+fieldset{
+  display: flex;
+  flex-direction: column;
+  width: 45rem;
+  font-size: 1.25rem;
+}
+
