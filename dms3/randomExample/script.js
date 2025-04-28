@@ -136,7 +136,7 @@ function randomListSelect(){
 }
 
 /////
-// For our final trick we're going to do the above, but make sure we don't repeat anything until the list is run through
+// For our next trick we're going to do the above, but make sure we don't repeat anything until the list is run through
 /////
 
 document.getElementById("randomFromListCycleBtn").addEventListener("click", randomListCycleSelect);
@@ -185,6 +185,58 @@ function randomListCycleSelect(){
   listForRandomCycle.innerHTML = workingListForRandomCyclePick;
 }
 
+/////
+// Finally let's look at weighting random through probability, we can set percentages for a binary choice and stack a list
+/////
+
+document.getElementById("randomProbBtn").addEventListener("click", randomColourChance);
+
+/* here's where we set the probability, which in this case is 20% (as a fraction of 1) */
+let chanceOfBlue = 0.2;
+
+/* as we want to apply the colour change to the button we're sending a reference of it via the event (e) */
+function randomColourChance(e){
+  /* first we're finding our random number */
+  let randomNumber = Math.random();
+  let thisButton = e.target;
+  /* we can use an if() statement to find out if our random number is less than 0.2 */
+  if(randomNumber < chanceOfBlue){
+    thisButton.style.backgroundColor = "#00d4ff"
+  } else {
+    /* this part is run if the random number isn't less than 0.2 ie its greater than 0.2 */
+    thisButton.style.backgroundColor = "#d61406"
+  }
+}
+
+document.getElementById("randomFromListProbBtn").addEventListener("click", randomListProbSelect);
+
+let randomFromListProbResult = document.getElementById("randomFromListProbSpan");
+
+/* define the array we want to pick from, this is just some string values, but could be anything */
+/* note there's multiple tomato entries, making it more likely to be picked */
+let listForRandomProbPick = [
+  "lightsalmon",
+  "tomato",
+  "tomato",
+  "tomato",
+  "peachpuff",
+  "olive",
+  "plum"
+];
+
+/* this is just for demonstration purposes, we're setting the appropriate element's content our working list */
+let listForRandomProb = document.getElementById("listForRandomProbSpan");
+listForRandomProb.innerHTML = listForRandomProbPick;
+
+function randomListProbSelect(){
+  /* first we're finding our random number */
+  let randomNumber = Math.random();
+  /* we're finding our random item much as the previous examples */
+  let randomSelector = Math.floor(listForRandomProbPick.length * randomNumber);
+  /* then we're setting the appropriate element's content to our item */
+  randomFromListProbResult.innerHTML = listForRandomProbPick[randomSelector];
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -218,3 +270,16 @@ function hslFromHue(hue){
   let lightness = 50;
   return `hsl(${hue}, ${saturation}%, ${lightness}%)`
 }
+
+/* function copyright Inigo Quilez on MIT License https://www.shadertoy.com/view/XlXcW4 */
+/* 
+
+vec3 hash33( uvec3 x )
+{
+    x = ((x>>8U)^x.yzx)*k;
+    x = ((x>>8U)^x.yzx)*k;
+    x = ((x>>8U)^x.yzx)*k;
+    
+    return vec3(x)*(1.0/float(0xffffffffU));
+}
+*/

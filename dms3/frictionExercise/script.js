@@ -1,5 +1,5 @@
 let waterAmount = 0.5;
-let dryAmount = 0.005;
+let dryAmount = 0.008;
 let currentColour = "rgb(255, 255, 255)";
 
 document.getElementById("palette01").addEventListener("click", addColour);
