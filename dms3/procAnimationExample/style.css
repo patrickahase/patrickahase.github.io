@@ -66,3 +66,17 @@ h1{
 #stageContainer{
   background-color: var(--col08);
 }
+
+#performanceBox{
+  width: 500px; height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  border: var(--border);
+}
+
+#performanceMarker{
+  width: 10px; height: 10px;
+  transform-origin: 50% 50%;
+  background-color: var(--col04);
+}
