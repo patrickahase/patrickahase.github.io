@@ -9,8 +9,24 @@ let colourNames = [
   "Bisque",
   "Coral",
   "Cyan",
+  "Olive",
+  "Cyan",
+  "Olive",
+  "Cyan",
+  "Olive",
+  "Cyan",
   "Olive"
 ];
+if(colourNames.length > 1){
+  for (let i = 1; i < colourNames.length; i++) {
+    let element1 = colourNames[i];
+    let element2 = colourNames[i-1];
+    line1.remove()
+    console.log(element1);
+    console.log(element2);
+  }
+}
+
 
 colourNames.push("Red");
 

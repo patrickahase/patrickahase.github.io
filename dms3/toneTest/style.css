@@ -28,3 +28,7 @@ dialog{
 dialog::backdrop{
   background-color: rgba(0, 0, 0, 0.397);
 }
+
+#b1{
+  width: 50%;
+}

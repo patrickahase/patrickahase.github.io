@@ -5,7 +5,13 @@ document.getElementById("dialogCloseBtn").addEventListener("click", () => {
 });
 
 /* to get the backdrop working we need to trigger modal open with js */
-document.getElementById("introDialog").showModal();
+//document.getElementById("introDialog").showModal();
+
+document.getElementById("openDialog").addEventListener("click", openDreamDialog);
+
+function openDreamDialog(){
+  document.getElementById("introDialog").showModal();
+}
 
 function toneInit(){
   mySynth.connect(myReverb);
@@ -25,6 +31,17 @@ synthButton.addEventListener("click", () => {
       wet: 0
     })
   }, 1000);
+});
+
+let button1 = document.getElementById("b1");
+
+
+// width: button1.offsetWdith,
+// height: button1.offsetHeight
+console.log(button1.offsetWidth);
+
+button1.addEventListener("click", () => {
+  console.log(button1.offsetWidth);
 });
 
 /////////////// Representation of tone mental model ///////////////

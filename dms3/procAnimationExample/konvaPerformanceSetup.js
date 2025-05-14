@@ -44,6 +44,8 @@ let mode = 'brush';
 /* rather than always listening on the stage we'll instead add and remove with mousedown and mouseup */
 /* first we need to define the drawing function */
 
+let marker = document.getElementById("performanceMarker");
+
 function draw(){
   if(mode === 'brush'){
       ctx.globalCompositeOperation = 'source-over';
@@ -74,13 +76,13 @@ function draw(){
 
   //console.log(pos);
 
-  //let marker = document.getElementById("performanceMarker");
-  //marker.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
+  
+  marker.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
 
-  //layer.cache();
-  //layer.filters([Konva.Filters.Pixelate, Konva.Filters.Blur, Konva.Filters.Solarize,]);  
-  //layer.pixelSize(4);
-  //layer.blurRadius(15);
+  layer.cache();
+  layer.filters([Konva.Filters.Pixelate, Konva.Filters.Blur, Konva.Filters.Solarize,]);  
+  layer.pixelSize(4);
+  layer.blurRadius(1);
 
   layer.batchDraw();
 }

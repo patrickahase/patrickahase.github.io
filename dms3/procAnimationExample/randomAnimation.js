@@ -30,7 +30,7 @@ function addCircle(){
 /* instead of defining duration we set a speed multiplier */
 /* as we don't know the distance each animation will travel we need to calculate it */
 /* and then apply the multiplier : this way speed is the same if it's moving 2px or 200px */
-let speedMult = 100;
+let speedMult = 500;
 
 function tweenToRandLocation(node){
   /* for our distance calculation we need to know what our current position is */
@@ -54,6 +54,8 @@ function tweenToRandLocation(node){
   /* once we've created the tween animation we make it start by calling play() */
   newTween.play();
 }
+() => { tweenToRandLocation(node) }
+
 
 ///////////////////
 
