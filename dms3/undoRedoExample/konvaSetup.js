@@ -87,17 +87,9 @@ image.on('mousedown', () => {
 /* so we could listen for mouseup there. as our stage is only a part of the page */
 /* we have to instead listen on the document itself */
 document.addEventListener("mouseup", () => {
-<<<<<<< Updated upstream:dms3/undoRedoExample/konvaSetup.js
     if(isPainting){
       saveUndoState();
     }
-=======
-  if(isPainting){
-    undoStates.push(canvas.toDataURL());
-  }
-    
-    console.log("saveUndo")
->>>>>>> Stashed changes:dms3/undoRedoExercise/konvaSetup.js
     isPainting = false;
     /* remove draw listener on mouseup */
     stage.off('mousemove', draw);  

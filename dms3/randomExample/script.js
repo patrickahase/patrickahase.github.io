@@ -145,11 +145,28 @@ let randomFromListCycleResult = document.getElementById("randomFromListCycleSpan
 
 /* define the array we want to pick from, this is just some string values, but could be anything */
 let listForRandomCyclePick = [
-  "lightsalmon",
-  "tomato",
-  "peachpuff",
-  "olive",
-  "plum"
+  "Hayoung",
+  "Kaleb",
+  "Uma",
+  "Luohan",
+  "Dayun",
+  "Ann",
+  "Mav",
+  "Tia",
+  "Yanni",
+  "Pauline",
+  "Sue Li",
+  "Minh",
+  "Me",
+  "Sakura",
+  "Sibi",
+  "Brian",
+  "Sookyung",
+  "Jacob",
+  "Kelly",
+  "Yeonwoo",
+  "Jiamin",
+  "Tony"
 ];
 /* we also want to create a copy of the above array : this will be the one we work with */
 /* if we do this we can restore back to our original array when we finish cycling through */
@@ -215,6 +232,7 @@ let randomFromListProbResult = document.getElementById("randomFromListProbSpan")
 /* define the array we want to pick from, this is just some string values, but could be anything */
 /* note there's multiple tomato entries, making it more likely to be picked */
 let listForRandomProbPick = [
+  "lightsalmon",
   "lightsalmon",
   "tomato",
   "tomato",
